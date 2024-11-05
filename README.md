@@ -1,36 +1,38 @@
+#The House Scout
+##Overview
+*The House Scout* is a Next.js application designed to connect realtors with clients looking for houses to rent. Our platform simplifies the house-hunting experience, making it easier to find a home that suits your needs and preferences.
 
-Sure! Here’s a README file tailored for your house hunting application:
+##Features
+*Property Listings:* Browse a wide range of rental properties with detailed descriptions and images.
+*Search and Filters:* Easily search for properties and filter listings based on your preferences, such as location, price, and amenities.
+*User Profiles:* Create and manage profiles to save favorite properties and receive personalized recommendations.
+*Realtor Profiles:* Realtors can showcase their listings and highlight their services.
+*Notifications:* Get alerts for new property listings that match your criteria.
+*Community Forum:* Engage with other users to share experiences, ask questions, and get advice on renting.
+*Resource Hub:* Access articles and guides related to renting and the housing market.
 
-THE HOUSE SCOUT
-Overview
-The House Scout is a Next.js application designed to connect realtors with clients looking for houses to rent. Our platform simplifies the house-hunting experience, making it easier to find a home that suits your needs and preferences.
+##Technologies Used
 
-Features
-Property Listings: Browse a wide range of rental properties with detailed descriptions and images.
-Search and Filters: Easily search for properties and filter listings based on your preferences, such as location, price, and amenities.
-User Profiles: Create and manage profiles to save favorite properties and receive personalized recommendations.
-Realtor Profiles: Realtors can showcase their listings and highlight their services.
-Notifications: Get alerts for new property listings that match your criteria.
-Community Forum: Engage with other users to share experiences, ask questions, and get advice on renting.
-Resource Hub: Access articles and guides related to renting and the housing market.
-Technologies Used
-Next.js: Framework for server-rendered React applications.
-React: Library for building user interfaces.
-Mongoose: ODM for MongoDB to manage data.
-Tailwind CSS: Utility-first CSS framework for styling.
-NodeMailer: For email notifications and alerts.
-TypeScript: Adds type safety to JavaScript.
-Getting Started
-Prerequisites
+*Next.js:* Framework for server-rendered React applications.
+*React:* Library for building user interfaces.
+*Mongoose:* ODM for MongoDB to manage data.
+*Tailwind CSS:* Utility-first CSS framework for styling.
+*NodeMailer:* For email notifications and alerts.
+*TypeScript:* Adds type safety to JavaScript.
+
+##Getting Started
+
+### Prerequisites
 Node.js (version 14 or higher)
 MongoDB (local or cloud instance)
-Installation
+
+###Installation
+
 Clone the repository:
 
 bash
-Copy code
-git clone https://github.com/Menjo-Mykey/the-house-scout.git
-cd inclusive-house-scout
+git clone https://github.com/Menjo-Mykey/the-house-hunter.git
+cd the-house-scout
 Install dependencies:
 
 bash

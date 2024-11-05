@@ -48,15 +48,14 @@ We welcome contributions! If you'd like to help improve the House Scout, please 
 
 Fork the repository.
 Create a new branch:
-bash
-Copy code
+
 git checkout -b feature/YourFeatureName
+
 Make your changes and commit them:
-bash
-Copy code
+
 git commit -m "Add your message here"
 Push to your branch:
-bash
+
 git push origin main
 Create a pull request.
 License

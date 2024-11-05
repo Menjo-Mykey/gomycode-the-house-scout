@@ -30,25 +30,21 @@ MongoDB (local or cloud instance)
 
 Clone the repository:
 
-bash
-git clone https://github.com/Menjo-Mykey/the-house-hunter.git
+git clone https://github.com/Menjo-Mykey/the-house-scout.git
 cd the-house-scout
+
 Install dependencies:
 
-bash
-Copy code
 npm install
 Set up your environment variables: Create a .env.local file in the root directory and add your MongoDB connection string and other necessary configurations.
 
 Run the development server:
 
-bash
-Copy code
 npm run dev
 Open your browser and go to http://localhost:3000 to see the application in action.
 
 Contributing
-We welcome contributions! If you'd like to help improve the Inclusive House Scout, please follow these steps:
+We welcome contributions! If you'd like to help improve the House Scout, please follow these steps:
 
 Fork the repository.
 Create a new branch:

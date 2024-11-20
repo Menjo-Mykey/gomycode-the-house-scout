@@ -1,7 +1,13 @@
-import React from 'react'
+// src/app/page.tsx
 
+import React from "react";
+import { Index } from "../components/index";
+import HeroSection from "@/components/HeroSection";
 export default function Home() {
   return (
-    <div>Home page</div>
-  )
+    <div>
+      <HeroSection />
+      <Index />
+    </div>
+  );
 }

@@ -17,3 +17,18 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error:"error message" }, { status: 500 });
   }
 }
+export async function POST(req:NextRequest) {
+  try {
+      const body = await req.json();
+      await connectToDatabase();
+              const savedProperties = await PropertyModel.insertMany(Array.isArray(body)? body:[body])
+
+    // Return the houses as JSON
+    return new Response(JSON.stringify(savedProperties), { status: 200 });
+  } catch (error: any) {
+    // Return an error response if something goes wrong
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+    });
+  }
+}

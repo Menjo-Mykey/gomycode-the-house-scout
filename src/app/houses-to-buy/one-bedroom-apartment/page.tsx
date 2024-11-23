@@ -25,6 +25,7 @@ interface IProperty {
 export default function OneBedroomApartment() {
   const [properties, setProperties] = useState<IProperty[]>([]);
   const [activeGalleryIndex, setActiveGalleryIndex] = useState<number[]>([]);
+  
   const [showMorePhotos, setShowMorePhotos] = useState<number | null>(null);
   const [showAgentContact, setShowAgentContact] = useState<number | null>(null);
 

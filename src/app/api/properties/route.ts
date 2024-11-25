@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
     const bedrooms = params.get("bedrooms");
 
     const filter = bedrooms ? { bedrooms: parseInt(bedrooms) } : {};
-    const properties = await PropertyModel.find(filter);
+    const properties = await PropertyModel.find(filter).limit(1);
 
     return NextResponse.json(properties);
   } catch (error) {

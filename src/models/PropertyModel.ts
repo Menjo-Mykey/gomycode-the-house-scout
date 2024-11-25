@@ -1,8 +1,11 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { IUser } from "./UserModel";
 
 export interface IProperty extends Document {
   title: string;
   bedrooms: number;
+  images: string[];
+  size: string;
   parking: string;
   bathrooms: number;
   compound: string;
@@ -10,7 +13,7 @@ export interface IProperty extends Document {
   description: string;
   price: number;
   location: string;
-  owner?: mongoose.Schema.Types.ObjectId; // Make optional if you don't have User model
+  owner: mongoose.Schema.Types.ObjectId | IUser; // Make optional if you don't have User model
   updatedAt?: Date;
   createdAt?: Date;
 }
@@ -19,6 +22,8 @@ const PropertySchema = new Schema<IProperty>(
   {
     title: { type: String, required: true },
     bedrooms: { type: Number, required: true, default: 1 },
+     images: { type: [String], required: true, default: [] },
+     size: { type: String, required: true, default: "50 by 100" },
     parking: { type: String, required: true },
     bathrooms: { type: Number, required: true, default: 1 },
     compound: { type: String, required: true },

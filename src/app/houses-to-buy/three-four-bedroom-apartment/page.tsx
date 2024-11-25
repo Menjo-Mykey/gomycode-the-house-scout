@@ -1,26 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { IProperty } from "@/models/PropertyModel";
+import { IUser } from "@/models/UserModel";
 
-interface IAgent {
-  name: string;
-  whatsapp: string;
-  email: string;
-}
 
-interface IProperty {
-  title: string;
-  size: string;
-  bedrooms: number;
-  parking: string;
-  bathrooms: number;
-  compound: string;
-  price: number;
-  currency: string;
-  mainImage: string;
-  gallery: string[];
-  agent?: IAgent; // Mark agent as optional
-}
+ 
 
 export default function OneBedroomApartment() {
   const [properties, setProperties] = useState<IProperty[]>([]);
@@ -40,9 +25,9 @@ export default function OneBedroomApartment() {
         // Ensure valid data structure and provide defaults
         const updatedData = data.map((property: Partial<IProperty>) => ({
           ...property,
-          mainImage: property.mainImage || `/images/1b1.jpg`, // Use a valid default image
-          gallery: property.gallery || [`/images/apartment1.jpg`, `/images/apartment2.jpg`],
-          agent: property.agent || { name: "Unknown", whatsapp: "N/A", email: "N/A" }, // Default agent
+          mainImage: (property?.images as string[]||[`/images/1b1.jpg`] )[0],  // Use a valid default image
+          gallery:(property?.images as string[])|| [`/images/apartment1.jpg`, `/images/apartment2.jpg`],
+          agent: property.owner || { name: "Unknown", whatsapp: "N/A", email: "N/A" }, // Default agent
         }));
 
         setProperties(updatedData);
@@ -61,8 +46,8 @@ export default function OneBedroomApartment() {
         i === propertyIndex
           ? (currentIndex +
               (direction === "next" ? 1 : -1) +
-              properties[i].gallery.length) %
-            properties[i].gallery.length
+              properties[i].images.length) %
+            properties[i].images.length
           : currentIndex
       )
     );
@@ -75,7 +60,7 @@ export default function OneBedroomApartment() {
       {properties.map((property, index) => (
         <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden mb-6">
           <Image
-            src={property.mainImage}
+            src={property.images[0]}
             alt={property.title || "Property"}
             width={1000}
             height={400}
@@ -101,7 +86,7 @@ export default function OneBedroomApartment() {
               <div className="mt-4">
                 <div className="relative w-full h-96 overflow-hidden rounded-lg">
                   <Image
-                    src={property.gallery[activeGalleryIndex[index]]}
+                    src={property.images[activeGalleryIndex[index]]}
                     alt={`${property.title || "Property"} image`}
                     layout="fill"
                     objectFit="cover"
@@ -130,23 +115,23 @@ export default function OneBedroomApartment() {
               </div>
             )}
 
-            {showAgentContact === index && property.agent && (
+            {showAgentContact === index && property.owner && (
               <div className="mt-4 text-blue-600">
-                <p><strong>Agent Name:</strong> {property.agent.name}</p>
+                <p><strong>Agent Name:</strong> {(property.owner as IUser).name}</p>
                 <p>
                   <strong>WhatsApp:</strong>{" "}
                   <a
-                    href={`https://wa.me/${property.agent.whatsapp}`}
+                    href={`https://wa.me/${(property.owner as IUser).phoneNumber}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {property.agent.whatsapp}
+                    {(property.owner as IUser).phoneNumber}
                   </a>
                 </p>
                 <p>
                   <strong>Email:</strong>{" "}
-                  <a href={`mailto:${property.agent.email}`}>
-                    {property.agent.email}
+                  <a href={`mailto:${(property.owner as IUser).email}`}>
+                    {(property.owner as IUser).email}
                   </a>
                 </p>
               </div>
